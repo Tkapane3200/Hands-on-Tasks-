@@ -1,0 +1,7 @@
+ ## Set up AWS Organizations for managing multiple AWS accounts.
+ step1: Open AWS Organizations from the AWS Management Console.
+ step2: Add an AWS account to the Organization.
+ step3: Enter the AWS account details.
+ step4: Create one or more AWS accounts within your organization.
+ step5: Verify your AWS account by checking the confirmation email.
+ 
