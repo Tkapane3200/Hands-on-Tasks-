@@ -1,0 +1,84 @@
+## What is the purpose of use of AWS-CLI? What are the key requirements to access AWS account using AWS-CLI.
+Create a working custom VPC. Launch one server in each subnet & connect private server with bastion host using CLI.##
+step1: install the aws CLI.
+```bash
+https://awscli.amazonaws.com/AWSCLIV2.msi
+msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+```
+step2: Configure AWS CLI.
+```bash
+aws configure ( enter the access key ,secret key, and region name)
+```
+step3: Create a Custom VPC
+```bash
+aws ec2 create-vpc --cidr-block 10.0.0.0/16 
+```
+(This creates a new VPC with the CIDR block 10.0.0.0/16. Note the 
+VPC ID in the response (e.g., vpc-04873702c72cbe2d0)).
+
+step4: Create Subnets
+# Create a Public Subnet
+```bash
+aws ec2 create-subnet --vpc-id vpc-04873702c72cbe2d0 --cidr-block 10.0.1.0/24 --availability-zone ap-south-1b
+```
+(Note the subnet ID in the response (e.g., subnet-0afe25ea8f0317475)).
+## Create a Private Subnet
+
+```bash
+aws ec2 create-subnet --vpc-id vpc-04873702c72cbe2d0 --cidr-block 10.0.2.0/24 --availability-zone ap-south-1b
+```
+(Note the subnet ID in the response (e.g., subnet-0cfe3e7feda2f8217)).
+step5: Set Up Internet Connectivity
+# Create an Internet Gateway
+```bash
+aws ec2 create-internet-gateway
+```
+(Note the Internet Gateway ID in the response (e.g., igw-07560eb860ddc0f74)).
+step6: Attach the Internet Gateway to the VPC
+```bash
+aws ec2 attach-internet-gateway --internet-gateway-id igw-07560eb860ddc0f74 --vpc-id vpc-04873702c72cbe2d0
+```
+Step7: Configure Routing
+# Create a Route Table
+```bash
+aws ec2 create-route-table --vpc-id vpc-04873702c72cbe2d0
+```
+(Note the Route Table ID in the response (e.g., rtb-0e0788a4f77b39768)).
+## Add a Route to the Internet
+```bash
+aws ec2 create-route --route-table-id rtb-0e0788a4f77b39768 --destination-cidr-block 0.0.0.0/0 --gateway-id igw-07560eb860ddc0f74
+```
+### Associate the Route Table with the Public Subnet
+```bash
+aws ec2 associate-route-table --subnet-id subnet-0afe25ea8f0317475 --route-table-id rtb-0e0788a4f77b39768
+```
+step8: Create a Key Pair for SSH Access
+```bash
+aws ec2 create-key-pair --key-name MyNewKeyPair --query 'KeyMaterial' --output text > MyNewKeyPair.pem
+```
+# Set Proper Key Permissions For Windows
+```bash
+icacls MyNewKeyPair.pem /inheritance:r /grant:r "%USERNAME%:R"
+```
+Step9:Launch EC2 Instances
+# Launch a Bastion Host in the Public Subnet
+```bash
+aws ec2 run-instances --image-id ami-0f2e255ec956ade7f --count 1 --instance-type t2.micro --key-name MyNewKeyPair --subnet-id subnet-0afe25ea8f0317475 --associate-public-ip-address
+```
+(Note the instance ID in the response (e.g., i-0cdf4afa5b98257dd)).
+## Launch a Private Server in the Private Subnet
+```bash
+aws ec2 run-instances --image-id ami-0f2e255ec956ade7f --instance-type t2.micro --key-name MyNewKeyPair --subnet-id subnet-0cfe3e7feda2f8217 --security-group-ids sg-0f81e491442060613 --count 1
+```
+(Note the instance ID in the response (e.g., i-0815865a4c2af91ef)).
+step10: Verify the instances are running
+
+
+
+
+
+
+
+
+
+
