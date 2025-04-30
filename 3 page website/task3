@@ -8,4 +8,5 @@ step6: Files and folders successfully uploaded to the S3 bucket "mywebsiteteju" 
 step7: Static website hosting option displayed for the S3 bucket "mywebsiteteju" before enabling hosting.
 step8: Confirmation of successfully enabling static website hosting for the S3 bucket "mywebsiteteju".
 step9: S3 bucket public access settings showing that "Block all public access" is enabled—this must be turned off to allow public website access.
-step10: 
+step10: Edited public .
+step11: successfully run s3 page website use images and videos.
