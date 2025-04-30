@@ -1,0 +1,11 @@
+##Create a static website using S3 with minimum 3 pages having images and videos
+step1: This application contains 3 pages, each including images and a video (all code file include)
+step2: About page of the static website, displaying an image and an embedded video.
+step3:Creating a new S3 bucket in the AWS Management Console for hosting the static website.
+step4: Configuring Object Ownership settings while creating the S3 bucket. "ACLs enabled" is selected to allow object access control via access control lists (ACLs).
+step5: Confirmation message showing successful creation of the S3 bucket named "mywebsiteteju" in the AWS S3 console.
+step6: Files and folders successfully uploaded to the S3 bucket "mywebsiteteju" with confirmation of upload status.
+step7: Static website hosting option displayed for the S3 bucket "mywebsiteteju" before enabling hosting.
+step8: Confirmation of successfully enabling static website hosting for the S3 bucket "mywebsiteteju".
+step9: S3 bucket public access settings showing that "Block all public access" is enabled—this must be turned off to allow public website access.
+step10: 
