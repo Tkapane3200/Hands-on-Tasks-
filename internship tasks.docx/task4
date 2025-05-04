@@ -1,0 +1,10 @@
+step1:AWS VPC Console showing existing VPCs and the option to create a new VPC.
+step2: AWS Subnets Console displaying three created public subnets within the selected VPC.
+step3:Successfully created Internet Gateway in AWS with the option to attach it to a VPC.
+step4:Internet Gateway successfully attached to the selected VPC and associated subnets in AWS VPC Dashboard.
+step5:Target Group 'mytargettest' successfully created in the AWS EC2 Dashboard with HTTP protocol and no associated load balancer.
+step6: Load Balancer 'myloadbalancetest' successfully created with an Internet-facing scheme and provisioning status in the AWS EC2 Dashboard.
+step7:Initial screen for creating an Auto Scaling Group in the AWS EC2 Dashboard.
+step8:Successfully created Auto Scaling Group ‘myautotest’ using the launch template ‘mytemplatetest’ in the AWS EC2 Console.
+step9:Apache web server successfully running on EC2 instances, showing instance status as “Running” and system checks passed in the AWS EC2 Console.
+step10:
