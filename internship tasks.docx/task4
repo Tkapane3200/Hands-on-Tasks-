@@ -7,4 +7,11 @@ step6: Load Balancer 'myloadbalancetest' successfully created with an Internet-f
 step7:Initial screen for creating an Auto Scaling Group in the AWS EC2 Dashboard.
 step8:Successfully created Auto Scaling Group ‘myautotest’ using the launch template ‘mytemplatetest’ in the AWS EC2 Console.
 step9:Apache web server successfully running on EC2 instances, showing instance status as “Running” and system checks passed in the AWS EC2 Console.
-step10:
+step10:Apache web server successfully running and accessible via public IP (65.1.111.139), displaying the internal EC2 hostname (ip-10-0-2-41.ap-south-1.compute.internal) in the browser.
+step11:Target group nginxgroup successfully created in the AWS EC2 console with instance-based target type, using HTTP protocol on port 80, and currently showing no registered targets.
+step12:Two target groups (mytargettest and nginxgroup) listed in the AWS EC2 console, both configured with HTTP protocol on port 80 and instance target type. The nginxgroup is currently not associated with any load balancer.
+step13:The second Auto Scaling group named nginxauto created successfully in the AWS EC2 console, listed alongside an existing group autoscaling1. Both use the same launch template mytesttemplete with different versions.
+step14:EC2 console showing three successfully running NGINX instances (t2.micro) in the 'ap-south-1' region.
+step15:Successfully launched and accessed the NGINX web server in a browser.
+step16:Configured load balancer listeners to manage and route incoming traffic to appropriate target groups.
+step17:Load balancer actively distributing traffic based on defined listener rules
